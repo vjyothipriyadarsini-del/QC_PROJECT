@@ -171,9 +171,12 @@ def plot_solution(df, route):
     plt.xlabel("X Coordinate")
     plt.ylabel("Y Coordinate")
     plt.legend()
-    # Save plot instead of blocking via show() if running in restricted env, 
-    # but show() is fine for local user.
-    plt.show()
+    
+    # Save plot for website
+    output_path = "c:\\QC_PROJECT\\assets\\result_plot.png"
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    print(f"Plot saved to {output_path}")
+    # plt.show()
 
 # ============================================
 # MAIN PIPELINE
@@ -265,8 +268,8 @@ if __name__ == "__main__":
     file_path = "c:\\QC_PROJECT\\C101_MTW.csv"
     
     # [SCALABLE MODE]
-    # We load 7 nodes: 1 Depot + 6 Customers
-    total_nodes = 7
+    # We load 5 nodes: 1 Depot + 4 Customers
+    total_nodes = 5
     data = load_data(file_path, num_nodes=total_nodes) 
     
     # Use Clustering to solve (2 clusters -> 3 customers each + depot)

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum VRP Solver | QAOA Implementation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Quantum VRP Solver</h1>
+            <p class="subtitle">Vehicle Routing Optimization using QAOA & Qiskit</p>
+            <a href="https://github.com/vjyothipriyadarsini-del/QC_PROJECT" class="btn">View on GitHub</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About The Project</h2>
+            <p>
+                This project implements a quantum-classical hybrid solution for the 
+                <strong>Vehicle Routing Problem (VRP)</strong>. By leveraging the 
+                <strong>Quantum Approximate Optimization Algorithm (QAOA)</strong>, 
+                we explore the potential of quantum computing in logistics optimization.
+            </p>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology">
+        <div class="container grid">
+            <div class="card">
+                <h3>01. Clustering</h3>
+                <p>Large datasets are partitioned using K-Means clustering to create manageable quantum sub-problems.</p>
+            </div>
+            <div class="card">
+                <h3>02. QUBO Formulation</h3>
+                <p>Routing constraints are mapped to a Quadratic Unconstrained Binary Optimization (QUBO) model.</p>
+            </div>
+            <div class="card">
+                <h3>03. Quantum Optimization</h3>
+                <p>StatevectorSampler and COBYLA optimizer execute the QAOA circuit to find optimal routes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results">
+        <div class="container">
+            <h2>Optimization Results</h2>
+            <p>Visualizing the optimal route found by the quantum algorithm for a subset of the Solomon MTW dataset.</p>
+            
+            <div class="result-box">
+                <!-- If the image exists, it will show. Otherwise alt text. -->
+                <img src="assets/result_plot.png" alt="Optimization Result Plot" class="result-img">
+                <p class="caption">Figure 1: Valid Hamiltonian Path showing optimal customer visits.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Quantum VRP Project. Built with Qiskit 1.0+</p>
+        </div>
+    </footer>
+
+</body>
+</html>

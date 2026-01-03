@@ -176,7 +176,9 @@ def plot_solution(df, route):
     # Save plot for website
     if 'base_dir' not in locals():
          base_dir = os.path.dirname(os.path.abspath(__file__))
-    assets_dir = os.path.join(base_dir, "assets")
+    # Go up one level to root, then into assets
+    root_dir = os.path.dirname(base_dir)
+    assets_dir = os.path.join(root_dir, "assets")
     os.makedirs(assets_dir, exist_ok=True)
     output_path = os.path.join(assets_dir, "result_plot.png")
     

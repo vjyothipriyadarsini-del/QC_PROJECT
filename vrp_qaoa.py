@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from itertools import permutations
 from sklearn.cluster import KMeans
 
@@ -173,7 +174,12 @@ def plot_solution(df, route):
     plt.legend()
     
     # Save plot for website
-    output_path = "c:\\QC_PROJECT\\assets\\result_plot.png"
+    if 'base_dir' not in locals():
+         base_dir = os.path.dirname(os.path.abspath(__file__))
+    assets_dir = os.path.join(base_dir, "assets")
+    os.makedirs(assets_dir, exist_ok=True)
+    output_path = os.path.join(assets_dir, "result_plot.png")
+    
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     print(f"Plot saved to {output_path}")
     # plt.show()
@@ -264,8 +270,10 @@ def solve_large_vrp(df, num_clusters=2):
 # ============================================
 # MAIN PIPELINE
 # ============================================
-if __name__ == "__main__":
-    file_path = "c:\\QC_PROJECT\\C101_MTW.csv"
+    # 1. Load Data (Relative Path)
+    # Using relative path for compatibility with any OS/Environment
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(base_dir, "C101_MTW.csv")
     
     # [SCALABLE MODE]
     # We load 5 nodes: 1 Depot + 4 Customers
